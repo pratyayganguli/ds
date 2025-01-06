@@ -4,41 +4,32 @@ package org.example.practice.gfg;
 
 class ThirdLargestElement {
 
-    /**
-     * 
-     * @param args
-     */
-    public static void main(String[] args) {
-        int [] data = new int[] {12, 1, 89, 8, 45, 33, 2};
-        int thirdLargestElement = getThirdLargestElement(data);
-        System.out.println(thirdLargestElement);
-    }
-
-    /**
-     * 
-     * Still using the o(n) for solving this question
-     * 
-     * @param data
-     * @return
-     */
-    private static int getThirdLargestElement(int[] data) {
-
+    private static int getThirdLargestNumber(int[] arr) {
         int largestElement = -1;
         int secondLargestElement = -1;
-        int thirdLargestElement = -1;
+        int thirdLargestElement =  -1;
 
-        for (int i = 0; i < data.length; i++) {
-            if(data[i] > largestElement){
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] > largestElement) {
+                thirdLargestElement = secondLargestElement;
                 secondLargestElement = largestElement;
+                largestElement = arr[i];
+            } else if(arr[i] > secondLargestElement && arr[i] != largestElement) {
                 thirdLargestElement = secondLargestElement;
-                largestElement = data[i];
-            } else if(data[i] > secondLargestElement && data[i] != largestElement) {
-                thirdLargestElement = secondLargestElement;
-                secondLargestElement = data[i];
-            } else if(data[i] > thirdLargestElement && data[i] != secondLargestElement) {
-                thirdLargestElement = data[i];
+                secondLargestElement = arr[i];
+            } else if(arr[i] > thirdLargestElement && arr[i] != secondLargestElement && arr[i] != largestElement) {
+                thirdLargestElement = arr[i];
             }
         }
         return thirdLargestElement;
+    }
+
+    public static void main(String[] args) {
+        // sample input arrays
+
+        //int [] arr = new int[]{1, 19, 3, 75, 0, 9};
+        int [] arr = new int[]{13, 100, 40, 3, 5, 1};
+        int data = getThirdLargestNumber(arr);
+        System.out.println(data);
     }
 }
