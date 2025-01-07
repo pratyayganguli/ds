@@ -19,16 +19,15 @@ class Node<T> {
     }
 }
 
-class Stack<T> {
+public class Stack<T> {
 
     private Node head;
-    private Node tail;
 
     /**
      *
      * @param data
      */
-    void push(T data) {
+    public void push(T data) {
         if(head == null) {
             System.out.println("no elements in the stack!");
             head = new Node(data);
@@ -42,7 +41,7 @@ class Stack<T> {
 
 
     // popping the top most element, i.e. changing the reference of the head.
-    void pop() {
+    public void pop() {
         if(head == null) {
             System.out.println("no elements in the stack!");
             return;
@@ -51,10 +50,25 @@ class Stack<T> {
             head = head.next;
         }
     }
+
+    public Object peek() {
+        if(head != null) {
+            return head.data;
+        }
+        return null;
+    }
+
+    public boolean isEmpty() {
+        if(head == null) {
+            return true;
+        }
+        return false;
+    }
 }
 
 class Executor {
     public static void main(String[] args) {
+        java.util.Stack stack = new java.util.Stack();
         Stack<String> names = new Stack<>();
         names.push("Arjun");
         names.push("Krishna");
