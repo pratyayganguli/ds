@@ -1,4 +1,14 @@
 package org.example.data.trees;
 
-public class BinarySearchTree {
+
+
+class BinarySearchTree {
+
+}
+
+class Main {
+    public static void main(String[] args) {
+
+    }
+
 }
