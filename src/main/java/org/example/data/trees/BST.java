@@ -14,6 +14,7 @@ class BSTNode {
     int data;
     BSTNode left;
     BSTNode right;
+    BSTNode prev;
 
     BSTNode(int data) {
         this.data = data;
@@ -24,35 +25,54 @@ class BST {
 
     private BSTNode root;
 
-    // write the recursive logic of this code...
     BSTNode insert(Scanner scanner, BSTNode node) {
         if(root == null) {
-            System.out.println("enter the element: ");
+            System.out.print("enter root value: ");
             int data = scanner.nextInt();
-            System.out.println("root node is initialized");
-            node = new BSTNode(data);
-            root = node;
-            return insert(scanner, root);
-        } else {
-            System.out.println("enter right of " + node.data);
-            var insertRight = scanner.nextBoolean();
-            if(insertRight) {
-                System.out.println("enter data: ");
-                int data = scanner.nextInt();
-                BSTNode newNode = new BSTNode(data);
-                node.right = newNode;
-                node = newNode;
-                return insert(scanner, node);
-            } else {
-                System.out.println("entering left of " + node.data);
-                System.out.println("enter data: ");
-                int data = scanner.nextInt();
-                BSTNode newNode = new BSTNode(data);
-                node.right = newNode;
-                node = newNode;
-                return insert(scanner, node);
+            root = new BSTNode(data);
+            node = root;
+            return insert(scanner, node);
+        }
+        if(node.left == null) {
+            System.out.print("do you want to insert left of " + node.data + ": ");
+            boolean insertLeft = scanner.nextBoolean();
+            if (insertLeft) {
+                return insertLeft(scanner, node);
             }
         }
+        if(node.right == null) {
+            System.out.print("do you want to insert right of " + node.data + ": ");
+            boolean insertRight = scanner.nextBoolean();
+            if (insertRight) {
+                return insertRight(scanner, node);
+            }
+        }
+
+        if(node.prev == null) {
+            return node;
+        }
+
+        return insert(scanner, node.prev);
+    }
+
+    private BSTNode insertLeft(Scanner scanner, BSTNode node) {
+        System.out.print("enter data: ");
+        int data = scanner.nextInt();
+        var tempNode = new BSTNode(data);
+        tempNode.prev = node;
+        node.left = tempNode;
+        node = tempNode;
+        return insert(scanner, node);
+    }
+
+    private BSTNode insertRight(Scanner scanner, BSTNode node) {
+        System.out.print("enter data: ");
+        int data = scanner.nextInt();
+        var tempNode = new BSTNode(data);
+        tempNode.prev = node;
+        node.right = tempNode;
+        node = tempNode;
+        return insert(scanner, node);
     }
 }
 
