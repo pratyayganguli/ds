@@ -17,7 +17,10 @@ class BinaryTree {
     private Node root;
     private Node currentNode;
 
-
+    /**
+     *
+     * @param node
+     */
     void insert(Node node) {
         if(root == null) {
             root = node;
@@ -58,8 +61,6 @@ class BinaryTree {
            
         }
     }
-
-
 
     Node search(int key) {
         return null;
