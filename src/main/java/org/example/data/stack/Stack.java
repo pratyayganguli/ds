@@ -41,13 +41,15 @@ public class Stack<T> {
 
 
     // popping the top most element, i.e. changing the reference of the head.
-    public void pop() {
+    public T pop() {
         if(head == null) {
             System.out.println("no elements in the stack!");
-            return;
+            return null;
         } else {
+            var popped = head.data;
             System.out.println("popping " + head.data);
             head = head.next;
+            return (T) popped;
         }
     }
 
