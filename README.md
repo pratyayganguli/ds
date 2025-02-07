@@ -11,11 +11,7 @@
     - / Hackerrank
     - / Coderbyte
     - / Codility
-
-
 - / listOfCompanies
-
 - / topics
-
 - / design
 ```
