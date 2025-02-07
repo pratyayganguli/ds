@@ -16,9 +16,9 @@ class Conversion {
         List<Integer> value = convertFromArrInt(new int[]{
             4, 5, 3, 2
         });
-        int[] intArr = convertFromList();
+        //int[] intArr = convertFromList();
         System.out.println(value);
-        System.out.println(intArr.toString());
+       //System.out.println(intArr.toString());
     }
 
     private static List<Integer> convertFromArrInt(int [] arr) {
