@@ -1,9 +1,7 @@
 package org.example.gfg;
 
 
-import java.math.MathContext;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * *
