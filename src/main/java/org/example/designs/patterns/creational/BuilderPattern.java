@@ -7,7 +7,7 @@ package org.example.designs.patterns.creational;
  * * @author Pratyay
  */
 
-public class BuilderPatternExample {
+class BuilderPattern {
 
 }
 
