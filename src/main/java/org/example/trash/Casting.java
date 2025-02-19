@@ -1,6 +1,9 @@
+package org.example.trash;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class Casting {
+class Casting {
 
 	/**
 	 * 
@@ -9,8 +12,12 @@ public class Casting {
 
 
 	public static void main(String[] args) {
-		int x = 1000;
-		long y = (long) x;
-		System.out.println(y);
+		int x = 0;
+		List<Integer> list = new ArrayList<>();
+		list.add(0);
+		System.out.println(list.size());
+		Integer integer = Integer.valueOf(0);
+		list.add(integer);
+
 	}
 }
