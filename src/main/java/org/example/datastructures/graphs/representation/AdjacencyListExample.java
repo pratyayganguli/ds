@@ -15,6 +15,7 @@ import java.util.List;
 
 class Vertex {
     // for now, we are sticking to int data
+    @Getter
     private int data;
     @Getter
     private List<Vertex> connectedVertices;
