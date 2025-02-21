@@ -1,4 +1,4 @@
-package org.example.trash;
+package trash;
 
 
 import java.util.ArrayList;

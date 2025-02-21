@@ -1,4 +1,4 @@
-package org.example.trash;
+package trash;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +18,5 @@ class Casting {
 		System.out.println(list.size());
 		Integer integer = Integer.valueOf(0);
 		list.add(integer);
-
 	}
 }
