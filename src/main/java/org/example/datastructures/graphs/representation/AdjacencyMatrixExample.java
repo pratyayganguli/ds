@@ -2,8 +2,8 @@ package org.example.datastructures.graphs.representation;
 
 
 import lombok.RequiredArgsConstructor;
+import org.example.datastructures.graphs.Vertex;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
