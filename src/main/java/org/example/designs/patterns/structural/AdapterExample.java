@@ -3,56 +3,63 @@ package org.example.designs.patterns.structural;
 
 import lombok.RequiredArgsConstructor;
 
-import java.io.File;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * *
- *
- * Scenario
- *
- * 1. You have plain text data you need to export and validate that data into a xml file
- * 2. You have to do the same task for Json data. But the function for this operation will only be accepting
- * an xml file.
- *
  * * @author Pratyay
- *
- * todo: Still not an accurate implementation
  */
-
-interface DataExporter {
-    void export();
+class AdapterExample {
+    public static void main(String[] args) {
+        Responder responder = new JsonResponder();
+        Receiver receiver = new Adapter();
+        Client client = new Client(responder, receiver);
+        client.execute();
+    }
 }
 
 @RequiredArgsConstructor
-class JsonExporter implements DataExporter {
-    private final String plainData;
-    private final XMLExporter xmlExporter;
-    private final Adapter adapter;
+class Client {
+    private final Responder responder;
+    private final Receiver receiver;
 
-
-    private void export(Map<String, Object> data) {
-        // business logic here.
+    public void execute() {
+        Map<String, Object> jsonData = responder.respond();
+        receiver.receive(jsonData);
     }
+}
+
+interface Responder {
+    Map<String, Object> respond();
+}
+
+class JsonResponder implements Responder {
 
     @Override
-    public void export() {
-        File xmlFile = xmlExporter.export(plainData);
-        Map<String, Object> data = adapter.transform(xmlFile);
-        export(data);
+    public Map<String, Object> respond() {
+        // complete the business logic over here.
+        return Map.of();
     }
 }
 
-class XMLExporter {
-    public File export(String plainXML) {
-        // business logic later.
-        return null;
-    }
+interface Receiver {
+    void receive(Map<String, Object> data);
 }
 
-class Adapter {
-    Map<String, Object> transform(File file) {
-        return new HashMap<>();
+class Adapter implements Receiver {
+
+    @Override
+    public void receive(Map<String, Object> data) {
+        String plainText = transformToPlainString(data);
+        receive(plainText);
+    }
+
+    private void receive(String plainText) {
+        // business logic over here.
+    }
+
+    private String transformToPlainString(Map<String, Object> data) {
+        // business logic goes here.
+        return "";
     }
 }
