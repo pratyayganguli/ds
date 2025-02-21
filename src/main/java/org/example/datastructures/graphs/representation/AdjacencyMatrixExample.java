@@ -3,6 +3,7 @@ package org.example.datastructures.graphs.representation;
 
 import lombok.RequiredArgsConstructor;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -41,10 +42,11 @@ class AdjacencyMatrix {
                     arr[i][j] = 1;
                     connectedCount++;
                 }
+                System.out.print(arr[i][j]);
                 j++;
             }
+            System.out.println();
         }
-        System.out.println("debug");
     }
 
     private int[][] populate(int [][] data, List<Vertex> vertices) {
