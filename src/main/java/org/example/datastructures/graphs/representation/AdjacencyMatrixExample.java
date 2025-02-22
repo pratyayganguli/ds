@@ -2,35 +2,15 @@ package org.example.datastructures.graphs.representation;
 
 
 import lombok.RequiredArgsConstructor;
+import org.example.datastructures.graphs.Vertex;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
- * *
- * * @author Pratyay
- */
-
-@RequiredArgsConstructor
-class AdjacencyMatrix {
-    private final List<Vertex> vertices;
-
-    public void display() {
-        int numberOfVertices = vertices.size();
-        int[][] arr = new int[numberOfVertices][numberOfVertices];
-
-        for(int i = 0; i < numberOfVertices; i++) {
-            List<Vertex> connectedVertices =  vertices.get(i).getConnectedVertices();
-            for(int j = 0; j < connectedVertices.size(); j++) {
-                if(vertices.get(i).getData() != connectedVertices.get(j).getData()) {
-                    arr[i][j] = 1;
-                }
-            }
-        }
-        System.out.println("debug!");
-    }
-}
-
+**
+ * Considering a directed graph we are preparing the adjacency matrix
+** @author Pratyay
+*/
 class AdjacencyMatrixExample {
     public static void main(String[] args) {
         Vertex v1 = new Vertex(10);
@@ -41,8 +21,40 @@ class AdjacencyMatrixExample {
         v1.connect(v2);
         v2.connect(v3);
         v4.connect(List.of(v2,v3));
-
         AdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix(List.of(v1, v2, v3, v4));
-        adjacencyMatrix.display();
+        adjacencyMatrix.transformIntoMatrix();
+    }
+}
+
+@RequiredArgsConstructor
+class AdjacencyMatrix {
+    private final List<Vertex> vertices;
+
+    public void transformIntoMatrix() {
+        int [][] arr = new int[vertices.size()][vertices.size()];
+        int [][] data = new int[vertices.size()][vertices.size()];
+        data = populate(data, vertices);
+        for(int i = 0; i < vertices.size(); i++) {
+            int j = 0;
+            int connectedCount = 0;
+            while(connectedCount < vertices.get(i).getConnectedVertices().size()) {
+                if(data[i][j] == vertices.get(i).getConnectedVertices().get(connectedCount).getData()) {
+                    arr[i][j] = 1;
+                    connectedCount++;
+                }
+                System.out.print(arr[i][j]);
+                j++;
+            }
+            System.out.println();
+        }
+    }
+
+    private int[][] populate(int [][] data, List<Vertex> vertices) {
+        for(int i = 0; i < vertices.size(); i++) {
+            for(int j = 0; j < vertices.size(); j++) {
+                data[i][j] = vertices.get(j).getData();
+            }
+        }
+        return data;
     }
 }
