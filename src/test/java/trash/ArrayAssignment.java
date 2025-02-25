@@ -10,9 +10,10 @@ import java.util.*;
 class ArrayAssignment {
     public static void main(String[] args) {
         Map<Integer, Integer> map = new HashMap<>();
-
+        
         String message = "hello";
         StringBuilder stringBuilder = new StringBuilder(message);
+
         stringBuilder.reverse();
 
         char ch = ':';
