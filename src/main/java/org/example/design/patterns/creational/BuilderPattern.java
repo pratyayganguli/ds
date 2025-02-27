@@ -1,9 +1,11 @@
-package org.example.designs.patterns.creational;
+package org.example.design.patterns.creational;
 
 
 
 /**
  * *
+ * todo: not the correct implementation of builder pattern
+ *
  * * @author Pratyay
  */
 

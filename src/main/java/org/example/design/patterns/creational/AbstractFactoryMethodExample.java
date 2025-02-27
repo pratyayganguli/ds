@@ -1,4 +1,4 @@
-package org.example.designs.patterns.creational;
+package org.example.design.patterns.creational;
 
 
 /**
@@ -16,7 +16,6 @@ class AbstractFactoryMethodExample {
         offlineGroceryStore.buyGrocery();
     }
 }
-
 
 interface ElectronicsStore {
     void purchaseElectronics();

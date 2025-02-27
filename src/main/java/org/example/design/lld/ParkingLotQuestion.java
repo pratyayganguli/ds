@@ -1,4 +1,4 @@
-package org.example.designs.lld;
+package org.example.design.lld;
 
 import java.util.HashMap;
 import java.util.Map;
