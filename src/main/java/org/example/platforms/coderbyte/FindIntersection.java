@@ -1,4 +1,4 @@
-package org.example.coderbyte;
+package org.example.platforms.coderbyte;
 
 
 /**

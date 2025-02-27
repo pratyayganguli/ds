@@ -1,4 +1,4 @@
-package org.example.gfg;
+package org.example.platforms.gfg;
 
 
 import java.util.Arrays;

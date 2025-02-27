@@ -1,4 +1,4 @@
-package org.example.designs.patterns.creational;
+package org.example.design.patterns.creational;
 
 
 import lombok.Setter;
